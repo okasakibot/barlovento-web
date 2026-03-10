@@ -751,3 +751,51 @@ p.phase-intro {
     background-color: var(--whatsapp-green);
     transform: translateY(-3px);
 }
+
+/* --- BOTÓN FLOTANTE SERVICIOS (LATERAL IZQUIERDO) --- */
+.float-services {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Lo centra perfectamente a la mitad vertical */
+    background-color: var(--brand-dark);
+    color: #FFF;
+    padding: 15px 20px;
+    border-radius: 0 10px 10px 0; /* Bordes redondeados solo a la derecha */
+    box-shadow: 3px 2px 15px rgba(0,0,0,0.2);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55), background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.float-services:hover {
+    background-color: var(--whatsapp-green);
+    padding-left: 25px; /* Efecto sutil de "pop-out" al pasar el cursor */
+    color: white;
+}
+
+/* Clase que se activa mediante JavaScript para ocultar el botón */
+.float-services.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-100%, -50%); /* Lo desliza fuera de la pantalla hacia la izquierda */
+}
+
+/* Responsividad para el botón en móviles (ocultamos el texto, dejamos solo el ícono) */
+@media (max-width: 768px) {
+    .float-services span {
+        display: none;
+    }
+    .float-services {
+        padding: 15px;
+    }
+    .float-services:hover {
+        padding-left: 15px; /* Evitamos el pop-out en móvil */
+    }
+}

@@ -168,10 +168,10 @@
         </div>
 
         <div style="text-align: center; margin-top: 40px;">
-                    <a href="services/" class="btn-main btn-dark" style="padding: 12px 35px; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 10px;">
-                        Ver todos los servicios <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+            <a href="services/" class="btn-main btn-dark" style="padding: 12px 35px; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 10px;">
+                Ver todos los servicios <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
 
     </section>
 
@@ -189,8 +189,8 @@
         </div>
         <br>
         <a href="https://wa.me/51944014115?text=Quiero%20información%20sobre%20los%20cursos%20de%20capacitación" class="btn-main btn-dark" style="font-size: 0.9rem; padding: 10px 25px;">
-                    Consultar Próximos Inicios
-                </a>
+            Consultar Próximos Inicios
+        </a>
     </section>
 
     <section id="contacto" class="section">
@@ -222,11 +222,42 @@
             <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">
                 &copy; 2026 Consultora Barlovento S.A.C. - Todos los derechos reservados.
             </p>
-        </footer>
+    </footer>
+
+    <a href="services/" class="float-services" id="btn-float-services">
+        <i class="fas fa-list-ul"></i> <span>Todos los Servicios</span>
+    </a>
 
     <a href="https://wa.me/51944014115?text=Hola,%20quisiera%20más%20información" class="float-wa" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const serviciosSection = document.getElementById("servicios");
+            const btnFloatServices = document.getElementById("btn-float-services");
+
+            if (serviciosSection && btnFloatServices) {
+                // Configuramos un observador (IntersectionObserver)
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        // Si la sección "servicios" está en pantalla, ocultamos el botón lateral
+                        if (entry.isIntersecting) {
+                            btnFloatServices.classList.add("hidden");
+                        } else {
+                            // Si salimos de la sección, mostramos el botón de nuevo
+                            btnFloatServices.classList.remove("hidden");
+                        }
+                    });
+                }, {
+                    // El threshold determina qué porcentaje de la sección debe verse para disparar la acción (0.1 = 10%)
+                    threshold: 0.1
+                });
+
+                // Le decimos al observador que vigile la sección de servicios
+                observer.observe(serviciosSection);
+            }
+        });
+    </script>
 </body>
 </html>
