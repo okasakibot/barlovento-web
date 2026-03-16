@@ -219,7 +219,12 @@
                 <a href="https://www.facebook.com/ConsultoraBarlovento" target="_blank"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.youtube.com/@ConsultoraBarlovento" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
-            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.5;">
+
+            <div style="margin-top: 15px;">
+                <a href="terminos.html" style="color: #ccc; font-size: 0.85rem; text-decoration: underline; transition: color 0.3s;">Términos y Condiciones de Capacitaciones</a>
+            </div>
+
+            <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.5;">
                 &copy; 2026 Consultora Barlovento S.A.C. - Todos los derechos reservados.
             </p>
     </footer>
@@ -238,23 +243,18 @@
             const btnFloatServices = document.getElementById("btn-float-services");
 
             if (serviciosSection && btnFloatServices) {
-                // Configuramos un observador (IntersectionObserver)
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
-                        // Si la sección "servicios" está en pantalla, ocultamos el botón lateral
                         if (entry.isIntersecting) {
                             btnFloatServices.classList.add("hidden");
                         } else {
-                            // Si salimos de la sección, mostramos el botón de nuevo
                             btnFloatServices.classList.remove("hidden");
                         }
                     });
                 }, {
-                    // El threshold determina qué porcentaje de la sección debe verse para disparar la acción (0.1 = 10%)
                     threshold: 0.1
                 });
 
-                // Le decimos al observador que vigile la sección de servicios
                 observer.observe(serviciosSection);
             }
         });
