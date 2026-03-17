@@ -6,7 +6,7 @@ console.warn = function(...args) {
     originalWarn.apply(console, args);
 };
 
-const csvFileName = 'data/Indices_ENSO.csv';
+const csvFileName = '../data/Indices_ENSO.csv';
 let pyodide;
 let trazoContinentes = null;
 
@@ -77,7 +77,7 @@ async function main() {
 
           # --- PROCESAR ZARR DINÁMICO ---
           base_url = window.location.href.split('?')[0].split('#')[0].rsplit('/', 1)[0]
-          zarr_url = f"{base_url}/data/anomaly_maps.zarr"
+          zarr_url = f"{base_url}/../data/anomaly_maps.zarr"
 
           # Lector HTTP simplificado (Ya no necesitamos hardcodear rutas gracias a consolidated=True)
           class BrowserHTTPStore(MutableMapping):
