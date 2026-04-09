@@ -752,17 +752,17 @@ p.phase-intro {
     transform: translateY(-3px);
 }
 
-/* --- BOTÓN FLOTANTE SERVICIOS (LATERAL IZQUIERDO) --- */
+/* --- BOTÓN FLOTANTE SERVICIOS (LATERAL DERECHO) --- */
 .float-services {
     position: fixed;
-    left: 0;
+    right: 0; /* Cambiado de left: 0 a right: 0 */
     top: 50%;
-    transform: translateY(-50%); /* Lo centra perfectamente a la mitad vertical */
+    transform: translateY(-50%); /* Se mantiene igual para centrar verticalmente */
     background-color: var(--brand-dark);
     color: #FFF;
     padding: 15px 20px;
-    border-radius: 0 10px 10px 0; /* Bordes redondeados solo a la derecha */
-    box-shadow: 3px 2px 15px rgba(0,0,0,0.2);
+    border-radius: 10px 0 0 10px; /* Invertido: Bordes redondeados solo a la izquierda */
+    box-shadow: -3px 2px 15px rgba(0,0,0,0.2); /* Sombra ajustada hacia la izquierda (-3px) */
     z-index: 99;
     display: flex;
     align-items: center;
